@@ -13,7 +13,7 @@ export function DataFilter(props) {
   const [value, setValue] = useState<DateRangePickerValue | null>(null)
 
   function handleSelection(val) {
-    console.log({ val })
+    // console.log({ val })
     if (val.selectValue == 'Custom') {
       // Open the picker
       setValue(null)

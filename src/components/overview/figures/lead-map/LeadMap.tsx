@@ -10,7 +10,7 @@ export default function LeadMap(props) {
 
   useEffect(() => {
     if (content.current) {
-      console.log({ content: content.current })
+      // console.log({ content: content.current })
       statesGeoJson.features.forEach((feat) => {
         feat.properties.tooltip = {
           totalCalls: {
