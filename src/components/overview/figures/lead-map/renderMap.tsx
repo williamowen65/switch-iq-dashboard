@@ -4,6 +4,15 @@ export default function renderMap(statesGeoJson) {
   console.log({ statesGeoJson })
   let projection = d3.geoAlbers().scale(700).translate([300, 190])
   const geoGenerator = d3.geoPath().projection(projection)
+
+  d3.select('svg').on('mouseover', (e) => {
+    const element = e.target.nodeName
+    if (element == 'svg') {
+      // Remove any existing tooltip
+      document.querySelector('g.tooltip')?.remove()
+    }
+  })
+
   let statesMap = d3
     .select('svg')
     .select('g.map')
