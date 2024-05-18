@@ -41,3 +41,9 @@ g.HI text {
   user-select: none;
   font-weight: bold;
 }
+
+.tooltip {
+  /* opacity: 0; */
+  /* width: 0; */
+  /* overflow: visible; */
+}

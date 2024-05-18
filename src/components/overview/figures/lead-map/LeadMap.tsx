@@ -10,7 +10,24 @@ export default function LeadMap(props) {
 
   useEffect(() => {
     if (content.current) {
-      renderMap()
+      statesGeoJson.features.forEach((feat) => {
+        feat.properties.tooltip = {
+          totalCalls: {
+            label: 'Total Calls',
+            value: '23,344',
+          },
+          connected: {
+            label: 'Connected',
+            value: '23,432 (94%)',
+          },
+          answered: {
+            label: 'Answered',
+            value: '23,445 (67%)',
+          },
+        }
+      })
+
+      renderMap(statesGeoJson)
     }
   }, [content.current])
 
@@ -27,6 +44,7 @@ export default function LeadMap(props) {
           ref={content}
         > */}
           <g className="map"></g>
+          <g className="mapToolTip"></g>
         </svg>
       </div>
     </figure>
