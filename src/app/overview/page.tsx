@@ -6,6 +6,7 @@ import RejectionsChart from '@/components/overview/figures/rejections/Rejections
 import QuickFilters from '@/components/overview/quick-filters/QuickFilters'
 import SummaryCards from '@/components/overview/summary-cards/SummaryCards'
 import classes from './page.module.css'
+import { DateRangePicker } from '@tremor/react'
 
 export default function Overview(props) {
   return (

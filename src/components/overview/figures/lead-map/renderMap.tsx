@@ -1,11 +1,15 @@
 import * as d3 from 'd3'
 
+/**
+ * This GeoJSON may be updated to have filtered info
+ */
 export default function renderMap(statesGeoJson) {
-  console.log({ statesGeoJson })
+  // Create projection and path generator
   let projection = d3.geoAlbers().scale(700).translate([300, 190])
   const geoGenerator = d3.geoPath().projection(projection)
 
-  d3.select('svg').on('mouseover', (e) => {
+  // Mouse event for hiding the tooltip
+  d3.select('svg#leadsMap').on('mouseover', (e) => {
     const element = e.target.nodeName
     if (element == 'svg') {
       // Remove any existing tooltip
@@ -13,18 +17,17 @@ export default function renderMap(statesGeoJson) {
     }
   })
 
+  // Initializing object to append SVGs
   let statesMap = d3
-    .select('svg')
+    .select('svg#leadsMap')
     .select('g.map')
     .selectAll() // path, text
     .data(statesGeoJson.features)
 
-  let toolTipMap = d3.select('svg').select('g.mapToolTip')
-  // .selectAll() // path, text
-  // .data(statesGeoJson.features)
+  // Appending a tooltip group after all other paths, so tooltips appear on top
+  let toolTipMap = d3.select('svg#leadsMap').select('g.mapToolTip')
 
-  console.log({ statesMap })
-
+  // Adding the state paths to the SVG
   const group = statesMap.enter().append('g')
   group
     .attr('class', (d) => d.properties.stateInitials)
@@ -32,9 +35,9 @@ export default function renderMap(statesGeoJson) {
     .attr('d', geoGenerator)
     .call(setToolTipListener)
 
+  // Set listener to show one tooltip at a time
   function setToolTipListener(selection) {
     selection.on('mouseover', showToolTip)
-    // selection.on('mouseleave', hideToolTip)
 
     function showToolTip(e) {
       // Remove any existing tooltip
@@ -76,6 +79,7 @@ export default function renderMap(statesGeoJson) {
     }
   }
 
+  // Adding the state initials on top of states
   group
     .insert('text')
     .attr('class', 'stateLabels')
@@ -83,44 +87,25 @@ export default function renderMap(statesGeoJson) {
     .call((selection) => centerItemOnState(selection, geoGenerator))
     .call(setToolTipListener)
 
-  // const tooltip = toolTipMap
-  //   .enter()
-  //   .append('g')
-  //   .attr('class', 'tooltip')
-  //   .attr('data-state', (d) => d.properties.stateInitials)
-  //   .call((selection) => centerItemOnState(selection, geoGenerator))
-  //   .call(handleTooltip)
-
-  // function setOnHover(selection) {
-
-  // }
-
-  function handleTooltip(selection) {
-    // selection.append('title').text((d) => d.properties.name)
-
-    selection.append('text').text((d) => d.properties.name)
-    return selection
-  }
-
+  // Helper function for centering items
+  // Applies corrections needed for initials and tooltips
   function centerItemOnState(selection, path) {
-    const selectionType = selection._groups[0][0].className.baseVal //.nodeName
+    // Handling tooltips and stateInitials below with this variable
+    const selectionType = selection._groups[0][0].className.baseVal
 
-    // console.log({ selection, selectionType })
-
+    // Corrections for items (Some were flowing off the svg and some "centers" of states were odd b/c of the state shape)
     const stateInitialPositionCorrections = getStateInitialPositionCorrections()
     const stateToolTipPositionCorrections = getStateToolTipPositionCorrections()
 
+    // For all stateInitialPositionCorrections, we color them black, but not these ones
     const forceWhiteInitials: string[] = ['FL', 'MI']
 
-    /**
-     * Create interface for  GeoPermissibleObjects plus extra properties
-     */
-
+    // Assigning extra properties to GeoJSON features GeoPermissibleObjects
     selection.each((d: d3.GeoPermissibleObjects) => {
-      d.center = geoGenerator.centroid(d)
-      d.initialsPositionCorrection =
+      d.center = geoGenerator.centroid(d) // Where is the center of the state on the SVG?
+      d.initialsPositionCorrection = // Possibly undefined, correct position info
         stateInitialPositionCorrections[d.properties.stateInitials]
-      d.tooltipPositionCorrection =
+      d.tooltipPositionCorrection = // Possibly undefined, correct position info
         stateToolTipPositionCorrections[d.properties.stateInitials]
     })
 
@@ -135,7 +120,6 @@ export default function renderMap(statesGeoJson) {
           )
             return 'black'
         })
-        // .each((d) => console.log({ d }))
         .attr('x', (d) => {
           let initialPoint = d.center[0] - 10
           if (d.initialsPositionCorrection) {
@@ -157,9 +141,6 @@ export default function renderMap(statesGeoJson) {
     // Tooltip
     if (selectionType == 'tooltip') {
       selection.attr('transform', (d) => {
-        console.log({ d })
-        // let initialPointX = d.center[0] - 100 + 0
-        // let initialPointY = d.center[1] - 120 + 0
         let initialPointX =
           d.center[0] -
           100 +
@@ -174,8 +155,6 @@ export default function renderMap(statesGeoJson) {
 
     return selection
   }
-
-  //   console.log(stateInitialsMap)
 }
 
 function getStateToolTipPositionCorrections() {
@@ -204,49 +183,16 @@ function getStateToolTipPositionCorrections() {
 
 function getStateInitialPositionCorrections() {
   return {
-    HI: {
-      x: 0,
-      y: 0,
-    },
-    VT: {
-      x: 0,
-      y: -25,
-    },
-    NH: {
-      x: 30,
-      y: 0,
-    },
-    MA: {
-      x: 30,
-      y: 0,
-    },
-    RI: {
-      x: 25,
-      y: 6,
-    },
-    CT: {
-      x: 17,
-      y: 10,
-    },
-    NJ: {
-      x: 20,
-      y: 0,
-    },
-    DE: {
-      x: 20,
-      y: 0,
-    },
-    MD: {
-      x: 30,
-      y: 10,
-    },
-    FL: {
-      x: 13,
-      y: 0,
-    },
-    MI: {
-      x: 10,
-      y: 10,
-    },
+    HI: { x: 0, y: 0 },
+    VT: { x: 0, y: -25 },
+    NH: { x: 30, y: 0 },
+    MA: { x: 30, y: 0 },
+    RI: { x: 25, y: 6 },
+    CT: { x: 17, y: 10 },
+    NJ: { x: 20, y: 0 },
+    DE: { x: 20, y: 0 },
+    MD: { x: 30, y: 10 },
+    FL: { x: 13, y: 0 },
+    MI: { x: 10, y: 10 },
   }
 }

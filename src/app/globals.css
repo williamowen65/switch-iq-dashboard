@@ -51,3 +51,7 @@ main {
     text-wrap: balance;
   }
 }
+
+.tremor-SelectItem-root {
+  cursor: pointer;
+}

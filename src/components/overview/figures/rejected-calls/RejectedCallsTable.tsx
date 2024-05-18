@@ -25,7 +25,7 @@ export function RejectedCallsTable(props) {
 
   return (
     <div className="custom-top-padding">
-      <h2 className="font-bold pb-3">Recent Calls</h2>
+      <h2 className="font-bold pb-3">Rejected Calls</h2>
       <div className="">
         <Table>
           <TableHead>

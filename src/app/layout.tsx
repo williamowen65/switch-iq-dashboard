@@ -4,6 +4,7 @@ import './globals.css'
 import '@/components/overview/figures/lead-map/leadMapStyles.css'
 import '@/components/overview/figures/globalTableStyles.css'
 import Header from '@/components/header/Header'
+import { DateRangePicker } from '@tremor/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
