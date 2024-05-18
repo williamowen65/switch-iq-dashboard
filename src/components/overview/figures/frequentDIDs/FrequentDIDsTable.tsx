@@ -28,7 +28,7 @@ export function FrequentDIDsTable(props) {
 
   return (
     <div className="custom-top-padding">
-      <h2 className="font-bold pb-3">Frequent DIDs</h2>
+      <h2 className="font-bold pb-3 pl-2">Frequent DIDs</h2>
       <div className="">
         <Table>
           <TableHead>

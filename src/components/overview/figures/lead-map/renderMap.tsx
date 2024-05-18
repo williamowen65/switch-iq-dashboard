@@ -57,7 +57,18 @@ export default function renderMap(statesGeoJson) {
     .attr('class', (d) => d.properties.stateInitials)
     .append('path')
     .attr('d', geoGenerator)
+    .style('fill', applyHeat)
     .call(setToolTipListener)
+
+  function applyHeat(d) {
+    const heat = d.properties.heat
+    console.log('applyHeat', { heat, d })
+
+    if (heat > 70) return '#4d5255'
+    else if (heat > 50) return '#5d6165'
+    else if (heat > 30) return '#878d92'
+    else return '#e4e7eb'
+  }
 
   // Set listener to show one tooltip at a time
   function setToolTipListener(selection) {

@@ -44,6 +44,12 @@ main {
   .custom-right-margin {
     @apply mr-4;
   }
+  .custom-left-margin {
+    @apply ml-4;
+  }
+  .title-indent {
+    @apply pl-2;
+  }
 }
 
 @layer utilities {

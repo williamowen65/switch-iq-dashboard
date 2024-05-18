@@ -12,6 +12,8 @@ export default function LeadMap(props) {
     if (content.current) {
       // console.log({ content: content.current })
       statesGeoJson.features.forEach((feat) => {
+        const randomNumber = Math.floor(Math.random() * 100)
+        feat.properties.heat = randomNumber
         feat.properties.tooltip = {
           totalCalls: {
             label: 'Total Calls',
@@ -33,8 +35,8 @@ export default function LeadMap(props) {
   }, [content])
 
   return (
-    <figure className="leadsMap custom-top-margin sm:custom-right-margin">
-      <h2 className="font-bold">Leads Map</h2>
+    <figure className="leadsMap custom-top-margin sm:custom-right-margin bg-white">
+      <h2 className="font-bold title-indent">Leads Map</h2>
       <div id="content">
         <svg
           id="leadsMap"

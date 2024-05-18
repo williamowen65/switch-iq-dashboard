@@ -2,7 +2,7 @@ import SummaryCard from './SummaryCard'
 
 export default function SummaryCards(props) {
   return (
-    <div className=" flex flex-wrap">
+    <div className=" flex flex-wrap sm:custom-left-margin">
       <SummaryCard
         data={{
           title: 'CPS',
