@@ -9,7 +9,6 @@ export default function LeadMap(props) {
   const content = useRef<SVGSVGElement>(null)
 
   useEffect(() => {
-    console.log('test', content.current)
     if (content.current) {
       renderMap()
     }
