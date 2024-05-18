@@ -13,7 +13,7 @@ import {
 export function RecentCalls(props) {
   const dummyData = [
     {
-      callTime: new Date(),
+      callTime: '2024-05-18T21:27:39.194Z',
       sourceIp: '151.218.9.255',
       did: '(206) 342-8631',
       dnis: '(717) 550-1675',
@@ -21,7 +21,7 @@ export function RecentCalls(props) {
       sipMessage: 'OK',
     },
     {
-      callTime: new Date(),
+      callTime: '2024-05-18T21:27:39.194Z',
       sourceIp: '151.218.9.255',
       did: '(206) 342-8631',
       dnis: '(717) 550-1675',
@@ -72,7 +72,7 @@ function CallRow({
   data,
 }: {
   data: {
-    callTime: Date
+    callTime: string
     sourceIp: string
     did: string
     dnis: string
@@ -90,7 +90,7 @@ function CallRow({
           }}
         />
       </TableCell>
-      <TableCell>{data.callTime.toISOString()}</TableCell>
+      <TableCell>{data.callTime}</TableCell>
       <TableCell>{data.sourceIp}</TableCell>
       <TableCell>{data.did}</TableCell>
       <TableCell>{data.dnis}</TableCell>
