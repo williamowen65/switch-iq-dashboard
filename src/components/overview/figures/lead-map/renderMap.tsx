@@ -35,6 +35,8 @@ export default function renderMap(statesGeoJson) {
       const toolTip = toolTipMap
         .append('g')
         .data([stateData])
+        .attr('class', (d) => `tooltip tooltip-${d.properties.stateInitials}`)
+        .append('g')
         .attr('class', 'tooltip')
         .attr('data-state', (d) => d.properties.stateInitials)
         .call((selection) => centerItemOnState(selection, geoGenerator))
@@ -96,52 +98,8 @@ export default function renderMap(statesGeoJson) {
 
     // console.log({ selection, selectionType })
 
-    const pointerCorrections = {
-      HI: {
-        x: 0,
-        y: 0,
-      },
-      VT: {
-        x: 0,
-        y: -25,
-      },
-      NH: {
-        x: 30,
-        y: 0,
-      },
-      MA: {
-        x: 30,
-        y: 0,
-      },
-      RI: {
-        x: 25,
-        y: 6,
-      },
-      CT: {
-        x: 17,
-        y: 10,
-      },
-      NJ: {
-        x: 20,
-        y: 0,
-      },
-      DE: {
-        x: 20,
-        y: 0,
-      },
-      MD: {
-        x: 30,
-        y: 10,
-      },
-      FL: {
-        x: 13,
-        y: 0,
-      },
-      MI: {
-        x: 10,
-        y: 10,
-      },
-    }
+    const stateInitialPositionCorrections = getStateInitialPositionCorrections()
+    const stateToolTipPositionCorrections = getStateToolTipPositionCorrections()
 
     const forceWhiteInitials: string[] = ['FL', 'MI']
 
@@ -151,7 +109,10 @@ export default function renderMap(statesGeoJson) {
 
     selection.each((d: d3.GeoPermissibleObjects) => {
       d.center = geoGenerator.centroid(d)
-      d.corrections = pointerCorrections[d.properties.stateInitials]
+      d.initialsPositionCorrection =
+        stateInitialPositionCorrections[d.properties.stateInitials]
+      d.tooltipPositionCorrection =
+        stateToolTipPositionCorrections[d.properties.stateInitials]
     })
 
     // State initials
@@ -160,7 +121,7 @@ export default function renderMap(statesGeoJson) {
         .style('fill', (d) => {
           // White is defined in  (Global css)
           if (
-            d.corrections &&
+            d.initialsPositionCorrection &&
             !forceWhiteInitials.includes(d.properties.stateInitials)
           )
             return 'black'
@@ -168,16 +129,16 @@ export default function renderMap(statesGeoJson) {
         // .each((d) => console.log({ d }))
         .attr('x', (d) => {
           let initialPoint = d.center[0] - 10
-          if (d.corrections) {
-            return initialPoint + d.corrections.x
+          if (d.initialsPositionCorrection) {
+            return initialPoint + d.initialsPositionCorrection.x
           } else {
             return initialPoint
           }
         })
         .attr('y', (d) => {
           let initialPoint = d.center[1] + 5
-          if (d.corrections) {
-            return initialPoint + d.corrections.y
+          if (d.initialsPositionCorrection) {
+            return initialPoint + d.initialsPositionCorrection.y
           } else {
             return initialPoint
           }
@@ -187,8 +148,17 @@ export default function renderMap(statesGeoJson) {
     // Tooltip
     if (selectionType == 'tooltip') {
       selection.attr('transform', (d) => {
-        let initialPointX = d.center[0] - 100
-        let initialPointY = d.center[1] - 120
+        console.log({ d })
+        // let initialPointX = d.center[0] - 100 + 0
+        // let initialPointY = d.center[1] - 120 + 0
+        let initialPointX =
+          d.center[0] -
+          100 +
+          (d.tooltipPositionCorrection ? d.tooltipPositionCorrection.x : 0)
+        let initialPointY =
+          d.center[1] -
+          120 +
+          (d.tooltipPositionCorrection ? d.tooltipPositionCorrection.y : 0)
         return `translate(${initialPointX}, ${initialPointY})`
       })
     }
@@ -197,4 +167,77 @@ export default function renderMap(statesGeoJson) {
   }
 
   //   console.log(stateInitialsMap)
+}
+
+function getStateToolTipPositionCorrections() {
+  return {
+    ME: { x: -100, y: 130 },
+    NH: { x: -50, y: 130 },
+    MA: { x: -50, y: 0 },
+    RI: { x: -50, y: 0 },
+    CT: { x: -50, y: 0 },
+    NJ: { x: -50, y: 0 },
+    DE: { x: -50, y: 0 },
+    MD: { x: -50, y: 0 },
+    WA: { x: 0, y: 130 },
+    OR: { x: 0, y: 60 },
+    ID: { x: 0, y: 130 },
+    MT: { x: 0, y: 130 },
+    ND: { x: 0, y: 130 },
+    MN: { x: 0, y: 130 },
+    WI: { x: 0, y: 130 },
+    MI: { x: 0, y: 130 },
+    NY: { x: 0, y: 130 },
+    VT: { x: 0, y: 130 },
+    SD: { x: 0, y: 30 },
+  }
+}
+
+function getStateInitialPositionCorrections() {
+  return {
+    HI: {
+      x: 0,
+      y: 0,
+    },
+    VT: {
+      x: 0,
+      y: -25,
+    },
+    NH: {
+      x: 30,
+      y: 0,
+    },
+    MA: {
+      x: 30,
+      y: 0,
+    },
+    RI: {
+      x: 25,
+      y: 6,
+    },
+    CT: {
+      x: 17,
+      y: 10,
+    },
+    NJ: {
+      x: 20,
+      y: 0,
+    },
+    DE: {
+      x: 20,
+      y: 0,
+    },
+    MD: {
+      x: 30,
+      y: 10,
+    },
+    FL: {
+      x: 13,
+      y: 0,
+    },
+    MI: {
+      x: 10,
+      y: 10,
+    },
+  }
 }

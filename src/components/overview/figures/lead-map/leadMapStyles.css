@@ -21,6 +21,9 @@ g.AK path {
 g.AK text {
   translate: -49px -61px;
 }
+g.tooltip-AK {
+  translate: 154px 498px;
+}
 g.HI {
   translate: 372px 128px;
 }
@@ -32,9 +35,10 @@ g.HI path {
 g.HI text {
   translate: 10px -20px;
 }
-#hawaiiSubMap {
-  translate: -428px 88px;
+g.tooltip-HI {
+  translate: 475px 69px;
 }
+
 .stateLabels {
   fill: white;
   font-size: 10.7px;
