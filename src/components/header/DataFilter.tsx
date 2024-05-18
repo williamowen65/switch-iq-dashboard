@@ -98,7 +98,9 @@ export function DataFilter(props) {
         30 days
       </DateRangePickerItem>
       <Divider className="my-0" />
-      <DateRangePickerItem value="Custom">Custom</DateRangePickerItem>
+      <DateRangePickerItem value="Custom" to={null} from={null}>
+        Custom
+      </DateRangePickerItem>
     </DateRangePicker>
   )
 }

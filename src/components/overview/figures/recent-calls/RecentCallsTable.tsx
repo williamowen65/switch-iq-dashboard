@@ -1,3 +1,6 @@
+'use client'
+
+import { selectAll } from '@/utils/common'
 import {
   Table,
   TableBody,
@@ -42,6 +45,7 @@ export function RecentCalls(props) {
                   style={{
                     boxShadow: 'none',
                   }}
+                  onChange={selectAll}
                 />
               </TableHeaderCell>
               <TableHeaderCell>Call Time</TableHeaderCell>

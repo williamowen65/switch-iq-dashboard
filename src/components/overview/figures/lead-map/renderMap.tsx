@@ -1,4 +1,27 @@
+// @ts-nocheck
 import * as d3 from 'd3'
+
+interface Tooltip {
+  label: string
+  value: string
+}
+
+interface GeoJSONFeature {
+  center: [number, number]
+  properties: {
+    stateInitials: string
+    name: string
+    tooltip: {
+      totalCalls: Tooltip
+      connected: Tooltip
+      answered: Tooltip
+    }
+  }
+  initialsPositionCorrection: Object
+  tooltipPositionCorrection: Object
+  type: string
+  geometry: Object
+}
 
 /**
  * This GeoJSON may be updated to have filtered info
@@ -6,6 +29,7 @@ import * as d3 from 'd3'
 export default function renderMap(statesGeoJson) {
   // Create projection and path generator
   let projection = d3.geoAlbers().scale(700).translate([300, 190])
+
   const geoGenerator = d3.geoPath().projection(projection)
 
   // Mouse event for hiding the tooltip
@@ -22,7 +46,7 @@ export default function renderMap(statesGeoJson) {
     .select('svg#leadsMap')
     .select('g.map')
     .selectAll() // path, text
-    .data(statesGeoJson.features)
+    .data(statesGeoJson.features as GeoJSONFeature[])
 
   // Appending a tooltip group after all other paths, so tooltips appear on top
   let toolTipMap = d3.select('svg#leadsMap').select('g.mapToolTip')
@@ -101,7 +125,7 @@ export default function renderMap(statesGeoJson) {
     const forceWhiteInitials: string[] = ['FL', 'MI']
 
     // Assigning extra properties to GeoJSON features GeoPermissibleObjects
-    selection.each((d: d3.GeoPermissibleObjects) => {
+    selection.each((d: GeoJSONFeature) => {
       d.center = geoGenerator.centroid(d) // Where is the center of the state on the SVG?
       d.initialsPositionCorrection = // Possibly undefined, correct position info
         stateInitialPositionCorrections[d.properties.stateInitials]

@@ -1,3 +1,6 @@
+'use client'
+
+import { selectAll } from '@/utils/common'
 import {
   Table,
   TableBody,
@@ -38,6 +41,7 @@ export function RejectedCallsTable(props) {
                   style={{
                     boxShadow: 'none',
                   }}
+                  onChange={selectAll}
                 />
               </TableHeaderCell>
               <TableHeaderCell>DID</TableHeaderCell>
@@ -64,7 +68,7 @@ function RejectedCallsRow({
   data: {
     did: string
     dnis: string
-    sipCode: string
+    sipCode: number
     sipMessage: string
   }
 }) {

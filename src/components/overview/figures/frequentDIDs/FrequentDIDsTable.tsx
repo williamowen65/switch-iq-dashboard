@@ -1,3 +1,6 @@
+'use client'
+
+import { selectAll } from '@/utils/common'
 import {
   Table,
   TableBody,
@@ -38,6 +41,7 @@ export function FrequentDIDsTable(props) {
                   style={{
                     boxShadow: 'none',
                   }}
+                  onChange={selectAll}
                 />
               </TableHeaderCell>
               <TableHeaderCell>DIDs</TableHeaderCell>
@@ -63,7 +67,7 @@ export function FrequentDIDsRow({
 }: {
   data: {
     dids: string
-    totalCalls: Date
+    totalCalls: string
     connectivity: string
     asrConnected: string
   }
