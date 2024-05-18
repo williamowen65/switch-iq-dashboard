@@ -1,0 +1,43 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+#content path {
+  fill: #ddd;
+  stroke: #aaa;
+  stroke-width: 1px;
+}
+g.AK {
+  translate: 202px 580px;
+}
+g.AK path {
+  /* transform-origin: center; */
+  scale: 0.35;
+  translate: -21px -225px;
+  rotate: -50deg;
+}
+g.AK text {
+  translate: -49px -61px;
+}
+g.HI {
+  translate: 372px 128px;
+}
+g.HI path {
+  scale: 0.8;
+  translate: -212px -131px;
+  rotate: -40deg;
+}
+g.HI text {
+  translate: 10px -20px;
+}
+#hawaiiSubMap {
+  translate: -428px 88px;
+}
+.stateLabels {
+  fill: white;
+  font-size: 10.7px;
+  user-select: none;
+  font-weight: bold;
+}

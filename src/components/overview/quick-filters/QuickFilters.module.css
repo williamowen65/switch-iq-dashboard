@@ -1,0 +1,13 @@
+.filters {
+  @apply p-4
+  bg-gray-50
+ hover:bg-gray-300
+ flex
+ items-center
+ whitespace-nowrap
+ cursor-pointer;
+}
+
+.always-selected {
+  @apply bg-gray-300;
+}

@@ -1,0 +1,8 @@
+table tbody tr {
+  background: white;
+}
+
+table tr {
+  @apply border
+  border-red-200;
+}
