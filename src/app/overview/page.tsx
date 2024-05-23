@@ -2,7 +2,7 @@ import { FrequentDIDsTable } from '@/components/overview/figures/frequentDIDs/Fr
 import LeadMap from '@/components/overview/figures/lead-map/LeadMap'
 import { RecentCalls } from '@/components/overview/figures/recent-calls/RecentCallsTable'
 import { RejectedCallsTable } from '@/components/overview/figures/rejected-calls/RejectedCallsTable'
-import RejectionsChart from '@/components/overview/figures/rejections/RejectionsChart'
+import RejectionsChart from '@/components/overview/figures/rejections-chart/RejectionsChart'
 import QuickFilters from '@/components/overview/quick-filters/QuickFilters'
 import SummaryCards from '@/components/overview/summary-cards/SummaryCards'
 import classes from './page.module.css'

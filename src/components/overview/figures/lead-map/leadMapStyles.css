@@ -46,8 +46,10 @@ g.tooltip-HI {
   font-weight: bold;
 }
 
-.tooltip {
-  /* opacity: 0; */
-  /* width: 0; */
-  /* overflow: visible; */
+.tooltip rect {
+  stroke: white;
+  fill: #5d6165;
+}
+.tooltip text {
+  fill: white;
 }

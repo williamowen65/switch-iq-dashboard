@@ -62,8 +62,6 @@ export default function renderMap(statesGeoJson) {
 
   function applyHeat(d) {
     const heat = d.properties.heat
-    console.log('applyHeat', { heat, d })
-
     if (heat > 70) return '#4d5255'
     else if (heat > 50) return '#5d6165'
     else if (heat > 30) return '#878d92'
@@ -95,20 +93,32 @@ export default function renderMap(statesGeoJson) {
         .attr('fill', 'white')
         .attr('stroke', 'black')
 
+      const padding = 5
+
       toolTip
         .append('text')
         .text((d) => d.properties.name)
         .attr('x', 10)
-        .attr('y', 20)
+        .attr('y', 20 + padding)
         .style('font-weight', 'bold')
 
-      Object.values(stateData.properties.tooltip).forEach(
+      const tooltipValues = Object.values(stateData.properties.tooltip)
+
+      // const longestLabelLength = tooltipValues.reduce((acc, curr) => {
+      //   const label = curr.label
+      //   if (label.length > acc) acc = label.length
+      //   return acc
+      // }, 0)
+
+      // console.log({ longestLabelLength })
+
+      tooltipValues.forEach(
         (entry: { label: string; value: string }, i: number) => {
           toolTip
             .append('text')
             .text((d) => `${entry.label}: ${entry.value}`)
             .attr('x', 10)
-            .attr('y', 40 + 20 * i)
+            .attr('y', 40 + 20 * i + padding)
         }
       )
     }

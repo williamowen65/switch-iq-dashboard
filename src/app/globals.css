@@ -61,3 +61,8 @@ main {
 .tremor-SelectItem-root {
   cursor: pointer;
 }
+
+.recharts-tooltip-wrapper {
+  /* poition tool tip layer above legend */
+  z-index: 1;
+}
