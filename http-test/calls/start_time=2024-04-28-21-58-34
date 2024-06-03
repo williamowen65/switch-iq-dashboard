@@ -1,0 +1,942 @@
+// NOTE: query was ?start_time=2024-04-28%2021:58:34
+{
+    "meta": [
+        {
+            "name": "timestamp",
+            "type": "DateTime"
+        },
+        {
+            "name": "call_id",
+            "type": "String"
+        },
+        {
+            "name": "source_ip",
+            "type": "String"
+        },
+        {
+            "name": "did",
+            "type": "String"
+        },
+        {
+            "name": "dnis",
+            "type": "String"
+        },
+        {
+            "name": "sip_code",
+            "type": "String"
+        },
+        {
+            "name": "sip_message",
+            "type": "String"
+        }
+    ],
+    "data": [
+        {
+            "timestamp": "2024-05-02 22:00:53",
+            "call_id": "0707318e37ff9bed76898aa17a5b5b5e@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "19157314258",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:52",
+            "call_id": "711592722588f3787ab82ab14c0c4e62@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "19158577781",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:52",
+            "call_id": "28d204a3744351a70c320f826f6de893@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "17753801544",
+            "dnis": "17026553413",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:52",
+            "call_id": "39a53282296eb60a68dae355761b65cd@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "17753801544",
+            "dnis": "17022743710",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:52",
+            "call_id": "76309dcb4adc6f3b0655be82768e3ae5@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "17753801544",
+            "dnis": "17022426588",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:52",
+            "call_id": "70517de82cd99ed13b816dc61e9981fb@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15054995278",
+            "dnis": "15753903939",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:52",
+            "call_id": "6c4699cb204501f446bc9db57ad41a4f@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15304791271",
+            "dnis": "12093611796",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:50",
+            "call_id": "178308a0239a99581a47ab141a99cf14@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13072272207",
+            "dnis": "13077890686",
+            "sip_code": "480",
+            "sip_message": "Temporarily Unavailable"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:44",
+            "call_id": "3b9b504a146bc0764868f22f00709f70@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15304791271",
+            "dnis": "12097775754",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:42",
+            "call_id": "7f4c568d017b07e74b75760f30c24419@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15092363448",
+            "dnis": "15097583686",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:42",
+            "call_id": "21366966156e117d71ac97881c5d7681@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13072272207",
+            "dnis": "13076799500",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:38",
+            "call_id": "7e8919e978e1ab9d145275780f53281d@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15205062126",
+            "dnis": "14805708984",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:31",
+            "call_id": "7628d1994baad716440bf17c558d3928@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15054995278",
+            "dnis": "15056850962",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:30",
+            "call_id": "24f4ec091bfb172307fc3f7e76a1112d@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15054995278",
+            "dnis": "15059206463",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:28",
+            "call_id": "35cf7ef065b45db72251ce91176dae20@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15304791271",
+            "dnis": "14155377890",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:27",
+            "call_id": "2924a3424bc7c8b51cf457d3155e39e7@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15304791271",
+            "dnis": "19166623479",
+            "sip_code": "480",
+            "sip_message": "Temporarily Unavailable"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:27",
+            "call_id": "5c0ac031537513e5193e3fd8166b31bc@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15304791271",
+            "dnis": "19162670707",
+            "sip_code": "480",
+            "sip_message": "Temporarily Unavailable"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:27",
+            "call_id": "18629ed43678a9da063437c443b462a9@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15304791271",
+            "dnis": "15596818209",
+            "sip_code": "603",
+            "sip_message": "Decline"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:25",
+            "call_id": "7b01ce1b5357a2c41e9228147eabfaa7@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "17753801544",
+            "dnis": "17024887060",
+            "sip_code": "401",
+            "sip_message": "Unauthorized"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:24",
+            "call_id": "4d0e40291e56fa7c4466d9be0bb41825@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15304791271",
+            "dnis": "19093356148",
+            "sip_code": "503",
+            "sip_message": "Service Unavailable"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:10",
+            "call_id": "09933ee5131f1dad2e3135ac7d10aee4@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14235282923",
+            "dnis": "17313642472",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:09",
+            "call_id": "18a0791e5950c2332207153f619a2a0e@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "16084144120",
+            "dnis": "19208855190",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:09",
+            "call_id": "75279b5a3fe441200faf37e173bce4a5@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "15129811272",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:09",
+            "call_id": "00a8d85a02bb28ae4d1546ad4e464f39@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "15126296453",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:09",
+            "call_id": "5816f0eb04c74e4062effaf443ab2344@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "18163100170",
+            "dnis": "14176695276",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:07",
+            "call_id": "4fde5e0f210c96a32267f14b4eb792c2@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "18476956208",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:05",
+            "call_id": "047d7d03634bc01363ae2c921ef8859a@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "16084144120",
+            "dnis": "19209800648",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:05",
+            "call_id": "40580f31772c1ce33020fd5a00a81bfd@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14057846621",
+            "dnis": "19184275836",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:05",
+            "call_id": "68ecb5a43afc78a62f2bc984477e3fd1@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "19032341538",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:05",
+            "call_id": "3305a67b411b5ce247581ca526cb43fa@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "17732620074",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:05",
+            "call_id": "19272b3171d2f7cf70955f133631bb6d@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "17753801544",
+            "dnis": "17022552378",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:05",
+            "call_id": "780f493a3f24b3256de865f404b3e856@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "15124975288",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:05",
+            "call_id": "0b2202c0618db68210c32aba3fba405d@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "16202773769",
+            "dnis": "13163057138",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:04",
+            "call_id": "65d459ef7b2e18207196460705ea2189@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "18179251477",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:04",
+            "call_id": "1b6120ba2902a58a36f813931f771969@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "16084144120",
+            "dnis": "14143310541",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:04",
+            "call_id": "23da7a872686a4bb6ecbaf6c3429caf3@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "16084144120",
+            "dnis": "12622422609",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:03",
+            "call_id": "5663a42737f8e4ca5e9b0fbc71077a0d@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14235282923",
+            "dnis": "16152186680",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:01",
+            "call_id": "1f4793b3246c933e6d0b3d7178c1bfda@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "19403290378",
+            "sip_code": "608",
+            "sip_message": "Rejected"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:01",
+            "call_id": "693a6f3b52b61fcc2f60231651910c97@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "19039654816",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 22:00:01",
+            "call_id": "46c029044939e45b329ed9de19899df6@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15414029699",
+            "dnis": "15037596463",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:59",
+            "call_id": "3ac72f4c4151ec1675e084657bb162c0@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "17753801544",
+            "dnis": "17027567560",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:59",
+            "call_id": "4eaacf0b634a94ff6c7e45374ca665bb@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "16184732711",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:58",
+            "call_id": "502287705297407b35d5a11b36b24f69@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15304791271",
+            "dnis": "16505938713",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:55",
+            "call_id": "2eced8035202c37a1747741a7aadad1f@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15072255540",
+            "dnis": "17636913895",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:54",
+            "call_id": "5801a6ac63c505a040eabb7c5dab1021@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "17738403989",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:54",
+            "call_id": "1872c94d3851cb72641b90b17b73094f@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "15122378503",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:54",
+            "call_id": "0076f9c82fda8b4f08ebc51364a14fc0@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15072255540",
+            "dnis": "12185914219",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:53",
+            "call_id": "2b89aa7a7c2865b6091fe270172839bf@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "18472911287",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:53",
+            "call_id": "5573f8f22be5b42f3883c1a579fb4046@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "18163100170",
+            "dnis": "18086315422",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:53",
+            "call_id": "5df7ab6f3772706d3f56802e1095dcad@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14235282923",
+            "dnis": "17318582242",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:53",
+            "call_id": "0529202211d860a53779e8ad3e83e319@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "13617722720",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:52",
+            "call_id": "4607616b74582c9477591d9034fc0ee6@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15092363448",
+            "dnis": "12535175965",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:50",
+            "call_id": "376ce6b424b002d6631cddba10b11ffe@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "17753801544",
+            "dnis": "17024966480",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:50",
+            "call_id": "1eb319c508a73bc9154f1ef935802920@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "16084144120",
+            "dnis": "12622102232",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:49",
+            "call_id": "19d1169c3d24b6bc3accfdc558563845@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14235282923",
+            "dnis": "19319933249",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:49",
+            "call_id": "6cd5162a64ea492e57439dec25934026@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14235282923",
+            "dnis": "19312540444",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:49",
+            "call_id": "317e02171fbd9bb15c94e0ce4ced6045@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "18475078177",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:49",
+            "call_id": "707b008c0c01035851cfe8082b76c0a4@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "15129059258",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:49",
+            "call_id": "0397d29a5b9d6e2144b732d8169316be@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "18163100170",
+            "dnis": "14176836350",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:49",
+            "call_id": "3e9a1813149b17d23886e5635b1e83b0@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12703412139",
+            "dnis": "12704650340",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:49",
+            "call_id": "6724b4a13e81aab057b0d64d7fb96baa@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "12145545166",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:49",
+            "call_id": "23fbdc9359718e4d1f0c76a47caec707@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15304791271",
+            "dnis": "12099512910",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:48",
+            "call_id": "1374c73c109cfa446b9a4354378c94a4@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "19037074893",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:48",
+            "call_id": "4cc63be11bba80616373805d31dc312e@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "18504003690",
+            "dnis": "18502674508",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:48",
+            "call_id": "3f7cfd6477c823cb251995ac32c88b7b@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "18174601645",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:48",
+            "call_id": "5fc10ccb012faa353fb3f8e773442d06@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "17753801544",
+            "dnis": "17027549287",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:48",
+            "call_id": "0063f3b953ee838462bbfe952199ba8d@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "15124799059",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:48",
+            "call_id": "2820fd0c2a0e42764f669fa34bb6660e@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12084489298",
+            "dnis": "12088750385",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:47",
+            "call_id": "1da3baf037c44baa3175be1c1a069410@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "12178515571",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:46",
+            "call_id": "49373b7a73ae4bc60402f7902102901e@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "16303720986",
+            "sip_code": "480",
+            "sip_message": "Temporarily Unavailable"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:46",
+            "call_id": "3c24bf316bc6c1f745edc3663e37d717@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15054995278",
+            "dnis": "15059809249",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:45",
+            "call_id": "4fb41d1771d0b8b7205dbdd05e378043@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14235282923",
+            "dnis": "19312960899",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:45",
+            "call_id": "2a1f809875578f4a3b7b2ba11be3ef0e@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14057846621",
+            "dnis": "19189300503",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:45",
+            "call_id": "2454d8176e073af74cd7cc6e2a763569@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "18474555515",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:45",
+            "call_id": "77ea6ca7053923ea782699dc09929e0e@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "17737274614",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:45",
+            "call_id": "4059840c74efe6f85e2d7882299057fe@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "17736434800",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:45",
+            "call_id": "72a4afc3197c44cf79ad4e870f45d6a8@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "15128471954",
+            "sip_code": "404",
+            "sip_message": "Not Found"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:45",
+            "call_id": "19511cbf11f51c2a34ac1a1213730826@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "15126572625",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:45",
+            "call_id": "39dc07c8266e6d1911a8ffd12ba091ba@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "12547225735",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:44",
+            "call_id": "566885280d2c37d635eb9c4c62869146@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14235282923",
+            "dnis": "19314847434",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:44",
+            "call_id": "6eb5880477139ca25914268749bac62c@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14057846621",
+            "dnis": "19188560047",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:44",
+            "call_id": "657b8f4705c116a471ec24080733b01b@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15304791271",
+            "dnis": "17145141666",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:44",
+            "call_id": "6c37b60144a44ecb50cce6ad7548f8af@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "17137058644",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:44",
+            "call_id": "1a3356f44ffd310371c2cd97681f280b@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14235282923",
+            "dnis": "16154599505",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:44",
+            "call_id": "730114004c9064432d8cc97c6aaf61dd@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15205062126",
+            "dnis": "15204446617",
+            "sip_code": "503",
+            "sip_message": "Service Unavailable"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:44",
+            "call_id": "15e0b5be2abcae64706795ef6d33b248@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "18163100170",
+            "dnis": "14177053085",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:44",
+            "call_id": "01fc4231403c5d78201db7272f637998@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "13314527211",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:44",
+            "call_id": "0fde8daf1a572b8754058b1c718065f8@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12703412139",
+            "dnis": "12707357656",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:43",
+            "call_id": "27a8b4941abc2c902be81c192f3ed708@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15304791271",
+            "dnis": "17149305160",
+            "sip_code": "480",
+            "sip_message": "Temporarily Unavailable"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:43",
+            "call_id": "72b081c534e911283292a5a9313b6333@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "12814146835",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:42",
+            "call_id": "7cd3b7887dde847c47b8c528330dd7bf@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "19403898937",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:42",
+            "call_id": "5c82dc6e35abdaac37384fa9747d0647@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "18476954669",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:42",
+            "call_id": "53ac3c4f0979acc97164ec0075cd45f2@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14235282923",
+            "dnis": "16158049019",
+            "sip_code": "408",
+            "sip_message": "Request Timeout"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:42",
+            "call_id": "792917363ae730f415e3c5202c76a90b@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13345754183",
+            "dnis": "12053647215",
+            "sip_code": "503",
+            "sip_message": "Service Unavailable"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:41",
+            "call_id": "0d91aa2861f3ab0d15a13dab62d21a08@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "16202773769",
+            "dnis": "19133566560",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:41",
+            "call_id": "0898363b300a5f7253b691974411c979@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "13252520021",
+            "dnis": "18176662373",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:41",
+            "call_id": "4c7a9b563ff6e19c1641a0970e0b5a73@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "18156308594",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:41",
+            "call_id": "1acff1203a250d2c297d7eb02c033f4d@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "12174843019",
+            "dnis": "17086463127",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:41",
+            "call_id": "41f5f5a73cefede90238485072ae6927@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "15414029699",
+            "dnis": "15039831130",
+            "sip_code": "200",
+            "sip_message": "OK"
+        },
+        {
+            "timestamp": "2024-05-02 21:59:41",
+            "call_id": "1d29f2635fca4f602b9a7f034d45f987@194.113.73.237:5060",
+            "source_ip": "194.113.73.237",
+            "did": "14063132036",
+            "dnis": "14068374667",
+            "sip_code": "487",
+            "sip_message": "Request Terminated"
+        }
+    ],
+    "rows": 100,
+    "rows_before_limit_at_least": 1952,
+    "statistics": {
+        "elapsed": 0.003843932,
+        "rows_read": 8192,
+        "bytes_read": 335017
+    }
+}

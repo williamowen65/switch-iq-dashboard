@@ -1,0 +1,19 @@
+GET https://switchiq-api.vercel.app/calls?start_time=2024-04-28&end_time=2024-05-03&page_size=16384
+
+###
+GET https://switchiq-api.vercel.app/calls?start_time=2024-04-28&end_time=2024-05-03&page_size=200
+
+###
+GET https://switchiq-api.vercel.app/calls?start_time=2024-04-28&end_time=2024-05-03&page_size=1952
+
+###
+GET https://switchiq-api.vercel.app/calls?start_time=2024-04-28&end_time=2024-05-03&page_size=1952&page=2
+
+###
+
+GET https://switchiq-api.vercel.app/calls?start_time=2024-04-28&end_time=2024-05-03
+
+###
+GET https://switchiq-api.vercel.app/calls?start_time=2024-04-28 21:58:34
+
+###
