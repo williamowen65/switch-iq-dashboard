@@ -5,6 +5,7 @@ import '@/components/overview/figures/lead-map/leadMapStyles.css'
 import '@/components/overview/figures/globalTableStyles.css'
 import Header from '@/components/header/Header'
 import { DateRangePicker } from '@tremor/react'
+import { FilterStateProvider } from '@/store/filter-state-context'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,8 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
+        <FilterStateProvider>
+          <Header />
+          {children}
+        </FilterStateProvider>
       </body>
     </html>
   )

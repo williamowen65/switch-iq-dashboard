@@ -9,6 +9,8 @@ import {
   TableHeaderCell,
   TableRow,
 } from '@tremor/react'
+import FilterStateContext from '@/store/filter-state-context'
+import { useContext } from 'react'
 
 export function FrequentDIDsTable(props) {
   const dummyData = [

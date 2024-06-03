@@ -1,5 +1,6 @@
 'use client'
 
+import FilterStateContext from '@/store/filter-state-context'
 import {
   DateRangePicker,
   DateRangePickerItem,
@@ -7,16 +8,20 @@ import {
   Divider,
 } from '@tremor/react'
 import moment from 'moment'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 export function DataFilter(props) {
-  const [value, setValue] = useState<DateRangePickerValue | null>(null)
+  // const [activeFilterStatus, filterContext.updateFilter] = useState<DateRangePickerValue | null>(null)
+
+  const filterContext = useContext(FilterStateContext)
+
+  const activeFilterStatus = filterContext.filterStatus
 
   function handleSelection(val) {
     // console.log({ val })
     if (val.selectValue == 'Custom') {
       // Open the picker
-      setValue(null)
+      filterContext.updateFilter(null)
       setTimeout(() => {
         // This set timeout is to work around tremor closing the dropdown on select custom
         const button = document.querySelector(
@@ -27,9 +32,10 @@ export function DataFilter(props) {
         }
       }, 100)
     } else {
-      setValue(val)
+      filterContext.updateFilter(val)
     }
   }
+
   const today = new Date()
   const yesterday = new Date()
   yesterday.setDate(today.getDate() - 1)
@@ -54,7 +60,7 @@ export function DataFilter(props) {
 
   return (
     <DateRangePicker
-      value={value}
+      value={activeFilterStatus}
       onValueChange={handleSelection}
       style={{
         marginLeft: 'auto',
