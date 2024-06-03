@@ -65,7 +65,7 @@ export function DataFilter(props) {
       style={{
         marginLeft: 'auto',
       }}
-      className="tremor-date-picker"
+      className="tremor-date-picker pt-2"
     >
       <DateRangePickerItem value="today" from={today} to={today}>
         Today ({moment().format('MMM Do')})

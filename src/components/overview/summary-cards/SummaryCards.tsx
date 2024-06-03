@@ -2,7 +2,7 @@ import SummaryCard from './SummaryCard'
 
 export default function SummaryCards(props) {
   return (
-    <div className=" flex flex-wrap sm:custom-left-margin">
+    <div className=" flex flex-wrap sm:flex-nowrap gap-x-4">
       <SummaryCard
         data={{
           title: 'CPS',
@@ -18,14 +18,14 @@ export default function SummaryCards(props) {
       ></SummaryCard>
       <SummaryCard
         data={{
-          title: 'ASP (Connected)',
+          title: 'ASR (Connected)',
           value: '72%',
           subValue: '+11%',
         }}
       ></SummaryCard>
       <SummaryCard
         data={{
-          title: 'ASP (Global)',
+          title: 'ASR (Global)',
           value: '65%',
           subValue: '+5.2%',
         }}

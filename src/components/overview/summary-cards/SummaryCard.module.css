@@ -1,5 +1,3 @@
 .summaryCard {
-  @apply rounded-none 
-  sm:w-80 
-  w-full;
+  @apply rounded-none;
 }

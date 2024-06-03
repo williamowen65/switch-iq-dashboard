@@ -35,7 +35,7 @@ export default function LeadMap(props) {
   }, [content])
 
   return (
-    <figure className="leadsMap custom-top-margin sm:custom-right-margin bg-white">
+    <figure className="leadsMap custom-top-margin  bg-white border ring-0 border-gray-400">
       <h2 className="font-bold title-indent">Leads Map</h2>
       <div id="content">
         <svg

@@ -27,6 +27,13 @@ export default function RejectionsChart(props) {
     },
   ]
   const colorTheme = ['#697077', '#697077', '#878d96', '#a3aab1', '#c1c7cd']
+  const categories = [
+    'Blocked Caller ID',
+    'Area Code Not Found',
+    'Federal DNC',
+    'Invalid DNIS',
+    'Easter Egg',
+  ]
 
   const valueFormatter = (number: number) => {
     return `$ ${Intl.NumberFormat('us').format(number).toString()}`
@@ -34,7 +41,7 @@ export default function RejectionsChart(props) {
 
   return (
     // The height used here matches the height of the heat map svg src\components\overview\figures\lead-map\LeadMap.tsx
-    <figure className="custom-top-margin bg-white">
+    <figure className="custom-top-margin bg-white border ring-0 border-gray-400">
       <h2 className="font-bold title-indent">Rejections</h2>
       <div className="flex items-center justify-center space-x-6 h-full py-[50px]">
         <DonutChart
@@ -46,20 +53,25 @@ export default function RejectionsChart(props) {
           className="w-40"
           showLabel={false}
         />
-        <Legend
-          categories={[
-            'Blocked Caller ID',
-            'Area Code Not Found',
-            'Federal DNC',
-            'Invalid DNIS',
-            'Easter Egg',
-          ]}
-          colors={colorTheme}
-          className="w-48"
-          style={{
-            zIndex: 0,
-          }}
-        />
+        <table>
+          {categories.map((category, i) => (
+            <tr
+              key={category}
+              className=" items-baseline"
+              style={{ border: 'none' }}
+            >
+              <td>
+                <div
+                  className={`rounded-full w-2 h-2 bg-[${colorTheme[i]}] mr-2`}
+                  style={{ verticalAlign: 'middle' }}
+                ></div>
+              </td>
+              <td className="text-nowrap">{category}</td>
+              <td className="font-light px-4">100</td>
+              <td className="font-bold">1.5%</td>
+            </tr>
+          ))}
+        </table>
       </div>
     </figure>
   )

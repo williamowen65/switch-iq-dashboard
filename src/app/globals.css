@@ -35,6 +35,9 @@ main {
 }
 
 @layer components {
+  .gray-border {
+    border: 1px solid gray;
+  }
   .custom-top-margin {
     @apply mt-4;
   }

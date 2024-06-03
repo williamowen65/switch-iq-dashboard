@@ -31,9 +31,9 @@ export function RecentCalls(props) {
   ]
 
   return (
-    <div className="custom-top-padding">
+    <div className="custom-top-padding ">
       <h2 className="font-bold pb-3 pl-2">Recent Calls</h2>
-      <div className="">
+      <div className=" border ring-0 border-gray-400">
         <Table>
           <TableHead>
             <TableRow>

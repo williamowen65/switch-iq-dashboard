@@ -13,7 +13,7 @@ export default function QuickFilters(props) {
     <>
       {/* Testing the filter global store */}
       {/* <div>Active Filter = {JSON.stringify(activeFilterStatus)}</div> */}
-      <div className="flex">
+      <div className="sm:flex flex-wrap hidden border ring-0 border-gray-400 w-fit">
         <div className={`${classes.filters} ${classes['always-selected']}`}>
           Quick Filters
         </div>
