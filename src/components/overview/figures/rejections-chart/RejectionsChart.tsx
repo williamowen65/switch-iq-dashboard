@@ -54,6 +54,8 @@ export default function RejectionsChart(props) {
           showLabel={false}
         />
         <table>
+          <tbody>
+
           {categories.map((category, i) => (
             <tr
               key={category}
@@ -71,6 +73,8 @@ export default function RejectionsChart(props) {
               <td className="font-bold">1.5%</td>
             </tr>
           ))}
+          </tbody>
+
         </table>
       </div>
     </figure>

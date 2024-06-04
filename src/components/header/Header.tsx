@@ -12,9 +12,11 @@ export default function Header(props) {
   return (
     <>
       <header>
-        <Link href="/overview" onClick={() => setIndex(0)}>
-          <h1 className="text-4xl">SwitchIQ</h1>
-        </Link>
+        <div className="flex items-baseline justify-between">
+          <Link href="/overview" onClick={() => setIndex(0)}>
+            <h1 className="text-4xl">SwitchIQ</h1>
+          </Link>
+        </div>
 
         <TabGroup className="" index={index} onIndexChange={setIndex}>
           <div className="flex justify-between items-baseline flex-wrap">

@@ -9,6 +9,7 @@ import {
 } from '@tremor/react'
 import moment from 'moment'
 import React, { useContext, useState } from 'react'
+import classes from './Header.module.css'
 
 export function DataFilter(props) {
   // const [activeFilterStatus, filterContext.updateFilter] = useState<DateRangePickerValue | null>(null)
@@ -59,54 +60,59 @@ export function DataFilter(props) {
   days30.setDate(today.getDate() - 30)
 
   return (
-    <DateRangePicker
-      value={activeFilterStatus}
-      onValueChange={handleSelection}
-      style={{
-        marginLeft: 'auto',
-      }}
-      className="tremor-date-picker pt-2"
-    >
-      <DateRangePickerItem value="today" from={today} to={today}>
-        Today ({moment().format('MMM Do')})
-      </DateRangePickerItem>
-      <DateRangePickerItem value="yesterday" from={yesterday} to={yesterday}>
-        Yesterday
-      </DateRangePickerItem>
-      <Divider className="my-0" />
-      <DateRangePickerItem value="5 minutes" to={today} from={minutes5}>
-        5 minutes
-      </DateRangePickerItem>
-      <DateRangePickerItem value="10 minutes" to={today} from={minutes10}>
-        10 minutes
-      </DateRangePickerItem>
-      <DateRangePickerItem value="30 minutes" to={today} from={minutes30}>
-        30 minutes
-      </DateRangePickerItem>
-      <Divider className="my-0" />
-      <DateRangePickerItem value="1 hour" to={today} from={hour1}>
-        1 hour
-      </DateRangePickerItem>
-      <DateRangePickerItem value="2 hours" to={today} from={hour2}>
-        2 hours
-      </DateRangePickerItem>
-      <DateRangePickerItem value="6 hours" to={today} from={hour6}>
-        6 hours
-      </DateRangePickerItem>
-      <DateRangePickerItem value="24 hours" to={today} from={hour24}>
-        24 hours
-      </DateRangePickerItem>
-      <Divider className="my-0" />
-      <DateRangePickerItem value="7 Days" to={today} from={days7}>
-        7 days
-      </DateRangePickerItem>
-      <DateRangePickerItem value="30 Days" to={today} from={days30}>
-        30 days
-      </DateRangePickerItem>
-      <Divider className="my-0" />
-      <DateRangePickerItem value="Custom" to={null} from={null}>
-        Custom
-      </DateRangePickerItem>
-    </DateRangePicker>
+    <div className="pt-2 flex">
+      <DateRangePicker
+        value={activeFilterStatus}
+        onValueChange={handleSelection}
+        style={{
+          marginLeft: 'auto',
+        }}
+        className={'tremor-date-picker'}
+      >
+        <DateRangePickerItem value="today" from={today} to={today}>
+          Today ({moment().format('MMM Do')})
+        </DateRangePickerItem>
+        <DateRangePickerItem value="yesterday" from={yesterday} to={yesterday}>
+          Yesterday
+        </DateRangePickerItem>
+        <Divider className="my-0" />
+        <DateRangePickerItem value="5 minutes" to={today} from={minutes5}>
+          5 minutes
+        </DateRangePickerItem>
+        <DateRangePickerItem value="10 minutes" to={today} from={minutes10}>
+          10 minutes
+        </DateRangePickerItem>
+        <DateRangePickerItem value="30 minutes" to={today} from={minutes30}>
+          30 minutes
+        </DateRangePickerItem>
+        <Divider className="my-0" />
+        <DateRangePickerItem value="1 hour" to={today} from={hour1}>
+          1 hour
+        </DateRangePickerItem>
+        <DateRangePickerItem value="2 hours" to={today} from={hour2}>
+          2 hours
+        </DateRangePickerItem>
+        <DateRangePickerItem value="6 hours" to={today} from={hour6}>
+          6 hours
+        </DateRangePickerItem>
+        <DateRangePickerItem value="24 hours" to={today} from={hour24}>
+          24 hours
+        </DateRangePickerItem>
+        <Divider className="my-0" />
+        <DateRangePickerItem value="7 Days" to={today} from={days7}>
+          7 days
+        </DateRangePickerItem>
+        <DateRangePickerItem value="30 Days" to={today} from={days30}>
+          30 days
+        </DateRangePickerItem>
+        <Divider className="my-0" />
+        <DateRangePickerItem value="Custom" to={null} from={null}>
+          Custom
+        </DateRangePickerItem>
+      </DateRangePicker>
+      <button className="bg-white px-2 py-1 rounded-md text-lg rounded-l-none border">
+        &#8635;
+      </button>
+    </div>
   )
 }
