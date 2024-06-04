@@ -6,6 +6,7 @@ import '@/components/overview/figures/globalTableStyles.css'
 import Header from '@/components/header/Header'
 import { DateRangePicker } from '@tremor/react'
 import { FilterStateProvider } from '@/store/filter-state-context'
+import { SwitchIQStateProvider } from '@/store/switchiq-api-context'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,8 +24,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className + ' p-2'}>
         <FilterStateProvider>
-          <Header />
-          {children}
+          <SwitchIQStateProvider>
+            <Header />
+            {children}
+          </SwitchIQStateProvider>
         </FilterStateProvider>
       </body>
     </html>
