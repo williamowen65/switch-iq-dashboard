@@ -9,6 +9,7 @@ const SwitchIQContext = createContext({
     rejectedCallRecords: {},
     rejectedCalls: {},
     frequentDIDs: {},
+    refresh: function () { }
 })
 
 
@@ -26,6 +27,8 @@ export function SwitchIQStateProvider(props) {
     const [rejectedCallRecords, setRejectedCallRecords] = useState()
     const [rejectedCalls, setRejectedCalls] = useState()
     const [frequentDIDs, setFrequentDIDs] = useState()
+
+
 
 
 
@@ -61,7 +64,11 @@ export function SwitchIQStateProvider(props) {
         callRecords,
         rejectedCallRecords,
         rejectedCalls,
-        frequentDIDs
+        frequentDIDs,
+        refresh: function () {
+            console.log("Refreshing data")
+            fetchData(getFilterQuery(activeFilterStatus))
+        }
     }
 
 

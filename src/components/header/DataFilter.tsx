@@ -1,6 +1,7 @@
 'use client'
 
 import FilterStateContext from '@/store/filter-state-context'
+import SwitchIQContext from '@/store/switchiq-api-context'
 import {
   DateRangePicker,
   DateRangePickerItem,
@@ -15,6 +16,7 @@ export function DataFilter(props) {
   // const [activeFilterStatus, filterContext.updateFilter] = useState<DateRangePickerValue | null>(null)
 
   const filterContext = useContext(FilterStateContext)
+  const switchContext = useContext(SwitchIQContext)
 
   const activeFilterStatus = filterContext.filterStatus
 
@@ -136,7 +138,10 @@ export function DataFilter(props) {
           Custom
         </DateRangePickerItem>
       </DateRangePicker>
-      <button className="bg-white px-2 py-1 rounded-md text-lg rounded-l-none border">
+      <button
+        className="bg-white px-2 py-1 rounded-md text-lg rounded-l-none border"
+        onClick={switchContext.refresh}
+      >
         &#8635;
       </button>
     </div>
