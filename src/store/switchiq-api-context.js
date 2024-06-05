@@ -94,7 +94,8 @@ export function SwitchIQStateProvider(props) {
                 // Evaluate rate limits and possibly wait
                 setTimeout(async () => {
                     console.log("Selected: ", activeFilterStatus.selectValue || activeFilterStatus.from && 'custom filter' || 'no filter',)
-                    console.log("Fetching: " + root + route + query)
+                    const url = encodeURI(root + route + query)
+                    console.log("Fetching: " + url)
                     // const response = await fetch(root + route + query)
                     // const responseData = await response.json()
 
