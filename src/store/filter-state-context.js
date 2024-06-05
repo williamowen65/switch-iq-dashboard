@@ -3,7 +3,7 @@
 const { createContext, useState } = require("react");
 
 const FilterStateContext = createContext({
-    filterStatus: null, // 
+    filterStatus: {}, // Will contain { from: Date, to: Date }
     updateFilter: function (newFilterStatus) {
         console.log("updateFilter")
     }
@@ -12,7 +12,7 @@ const FilterStateContext = createContext({
 
 export function FilterStateProvider(props) {
 
-    const [filterStatus, setFilterStatus] = useState()
+    const [filterStatus, setFilterStatus] = useState({})
 
     function handleUpdateFilterStatus(newFilterStatus) {
         setFilterStatus(newFilterStatus)
