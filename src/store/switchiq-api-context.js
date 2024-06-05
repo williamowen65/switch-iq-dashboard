@@ -45,11 +45,11 @@ export function SwitchIQStateProvider(props) {
                 // })
 
                 await fetchData(getFilterQuery(activeFilterStatus))
-                // setCallRecords(true)
 
                 // setLocalFilter(activeFilterStatus)
             }
 
+            // This prevents a duplicate fetch on load.
             setPageLoaded(true)
             // console.log("activeFilterStatus in SwitchIQStateProvider \n", activeFilterStatus,
             //     { "localFilter.from !== activeFilterStatus.from || localFilter.to !== activeFilterStatus.to": localFilter.from !== activeFilterStatus.from || localFilter.to !== activeFilterStatus.to }
@@ -57,6 +57,13 @@ export function SwitchIQStateProvider(props) {
         }
 
     }, [activeFilterStatus, pageLoaded])
+
+    useEffect(() => {
+        if (pageLoaded) {
+
+            console.log({ callRecords })
+        }
+    }, [callRecords, pageLoaded])
 
 
 
@@ -74,14 +81,14 @@ export function SwitchIQStateProvider(props) {
 
     async function fetchData(query) {
 
-        paginateFetch('calls', query)
-
-
-        // console.log('fetch data', { route, query })
-
-        // setCallRecords(paginateFetch(route, query))
-        // console.log("set call records to true")
-        // setCallRecords(true)
+        try {
+            const calls = await paginateFetch('calls', query)
+            // setCallRecords(paginateFetch(route, query))
+            // console.log("set call records to true")
+            setCallRecords(calls)
+        } catch (error) {
+            console.log(error)
+        }
 
 
         async function paginateFetch(route, query) {
@@ -96,23 +103,42 @@ export function SwitchIQStateProvider(props) {
 
             return data
 
+
             async function performFetch() {
                 let waitTime = 0
                 // Evaluate rate limits and possibly wait
-                setTimeout(async () => {
-                    console.log("Selected: ", activeFilterStatus.selectValue || activeFilterStatus.from && 'custom filter' || 'no filter',)
-                    const url = encodeURI(root + route + query)
-                    console.log("Fetching: " + url)
-                    // const response = await fetch(root + route + query)
-                    // const responseData = await response.json()
+                return new Promise((resolve, reject) => {
 
-                    // Get rate limit headers, set rateLimits
+                    setTimeout(async () => {
+                        console.log("Selected: ", activeFilterStatus.selectValue || activeFilterStatus.from && 'custom filter' || 'no filter',)
+                        const url = encodeURI(root + route + query)
+                        console.log("Fetching: " + url)
+                        // const response = await fetch(root + route + query)
+                        // const responseData = await response.json()
+                        // const response = {} // temp
+                        // const responseData = {} // temp
 
-                    // data.push(responseData.data)
-                    // dataCount += responseData.rows
-                    // console.log("performFetch", { responseData, dataCount })
-                    // return responseData
-                }, waitTime)
+                        // Comment back in when we can fetch
+                        // if (responseData.error) {
+                        //     console.error(responseData.error)
+                        //     if (JSON.stringify(responseData.error).includes("Too many request")) {
+                        //         throw new Error(responseData.error.error)
+                        //     }
+                        // }
+
+                        // Comment back in when we can fetch
+                        // Get rate limit headers, set rateLimits
+                        // console.log(...response.headers)
+
+
+                        // data.push(responseData.data)
+                        // dataCount += responseData.rows
+                        // console.log("performFetch", { responseData, dataCount })
+                        // return responseData
+
+                        resolve()
+                    }, waitTime)
+                })
 
             }
 
