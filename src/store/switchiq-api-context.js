@@ -39,6 +39,7 @@ export function SwitchIQStateProvider(props) {
             if (pageLoaded && (localFilter.from !== activeFilterStatus.from || localFilter.to !== activeFilterStatus.to || !callRecords)) {
 
                 if (abortController) {
+                    // Cancels the current api calls being made for an old query
                     abortController.abort("There is a new filter query")
                 }
 
