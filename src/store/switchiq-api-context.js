@@ -27,6 +27,7 @@ export function SwitchIQStateProvider(props) {
     const [rejectedCallRecords, setRejectedCallRecords] = useState()
     const [rejectedCalls, setRejectedCalls] = useState()
     const [frequentDIDs, setFrequentDIDs] = useState()
+    const [summary, setSummary] = useState()
     const [abortController, setAbortController] = useState(null)
 
 
@@ -69,8 +70,15 @@ export function SwitchIQStateProvider(props) {
                 frequentDIDs
             })
         }
+        console.log({
+            callRecords,
+            rejectedCallRecords,
+            rejectedCalls,
+            frequentDIDs,
+            summary
+        })
     }, [callRecords, rejectedCallRecords,
-        rejectedCalls,
+        rejectedCalls, summary,
         frequentDIDs, pageLoaded])
 
 
@@ -82,7 +90,15 @@ export function SwitchIQStateProvider(props) {
         frequentDIDs,
         refresh: function () {
             console.log("Refreshing data")
-            fetchData(getFilterQuery(activeFilterStatus))
+            if (abortController) {
+                // Cancels the current api calls being made for an old query
+                abortController.abort("There is a new filter query")
+            }
+
+            const controller = new AbortController()
+
+            setAbortController(controller)
+            fetchData(getFilterQuery(activeFilterStatus), controller)
         }
     }
 
@@ -93,23 +109,41 @@ export function SwitchIQStateProvider(props) {
      * Fetches all data based on the current query
      */
     async function fetchData(query, abortController) {
-        // Rate limit is updated/evaluated via paginateFetch
-        // let rateLimits = {}
 
-        // Cancel any fetch that was currently going on.
-        let cancelCurrentAPICalls = true
 
         try {
+            Promise.all([
+                (async () => {
+                    // Initializing the fetch process for all the data
+                    setCallRecords([])
+                    const calls = await paginateFetch('calls', query, setCallRecords)
+                    // setCallRecords(callRecords => {
+                    //     console.log({ callRecords })
+                    //     return callRecords
+                    // })
+                })(),
+                (async () => {
+                    setRejectedCallRecords([])
+                    const rejectedCallRecords = await paginateFetch('rejected_calls', query, setRejectedCallRecords)
+                })(),
+                (async () => {
+                    setRejectedCalls([])
+                    const rejectedCalls = await paginateFetch('rejected_chart', query, setRejectedCalls)
+                })(),
+                (async () => {
+                    setFrequentDIDs([])
+                    const frequentDIDs = await paginateFetch('frequent_dids', query, setFrequentDIDs)
+                })(),
+                (async () => {
+                    setSummary([])
+                    const frequentDIDs = await paginateFetch('summary', query, setSummary)
+                })(),
+            ])
 
-            // Initializing the fetch process for all the data
-            const calls = await paginateFetch('calls', query)
-            setCallRecords(calls)
-            const rejectedCallRecords = await paginateFetch('rejected_calls', query)
-            setRejectedCallRecords(rejectedCallRecords)
-            const rejectedCalls = await paginateFetch('rejected_chart', query)
-            setRejectedCalls(rejectedCalls)
-            const frequentDIDs = await paginateFetch('frequent_dids', query)
-            setFrequentDIDs(frequentDIDs)
+
+
+
+
 
         } catch (error) {
             console.log(error)
@@ -117,7 +151,7 @@ export function SwitchIQStateProvider(props) {
         }
 
 
-        async function paginateFetch(route, query) {
+        async function paginateFetch(route, query, setState) {
 
             let page = 0;
             const dataCountBy = 20000;
@@ -125,46 +159,48 @@ export function SwitchIQStateProvider(props) {
             const data = []
             let responseData = await performFetch(page)
 
-            while (responseData.data.length == dataCountBy) {
-                page += 1
-                responseData = await performFetch(page)
+            if (responseData.data.length == dataCountBy) {
+
+                while (responseData.data.length == dataCountBy) {
+                    setState(data)
+                    page += 1
+                    responseData = await performFetch(page)
+                }
+            } else {
+                setState(data)
             }
 
-            return data
+            // return data
             async function performFetch(page) {
-                let waitTime = 0
-                // Evaluate rate limits and possibly wait
-                return new Promise((resolve, reject) => {
+                return new Promise(async (resolve, reject) => {
 
-                    setTimeout(async () => {
-                        console.log("Selected: ", activeFilterStatus.selectValue || activeFilterStatus.from && 'custom filter' || 'no filter',)
-                        const url = encodeURI(root + route + `?page_size=${dataCountBy}&page=${page}` + query)
-                        console.log("Fetching: " + url)
-                        const signal = abortController.signal
-                        const response = await fetch(url, { signal })
-                        const responseData = await response.json()
+                    console.log("Selected: ", activeFilterStatus.selectValue || activeFilterStatus.from && 'custom filter' || 'no filter',)
+                    const url = encodeURI(root + route + `?page_size=${dataCountBy}&page=${page}` + query)
+                    console.log("Fetching: " + url)
+                    const signal = abortController.signal
+                    const response = await fetch(url, { signal })
+                    const responseData = await response.json()
 
-                        if (responseData.error) {
-                            console.error(responseData.error)
-                            if (JSON.stringify(responseData.error).includes("Too many request")) {
-                                throw new Error(responseData.error.error)
-                            }
+                    if (responseData.error) {
+                        console.error(responseData.error)
+                        if (JSON.stringify(responseData.error).includes("Too many request")) {
+                            throw new Error(responseData.error.error)
                         }
+                    }
 
-                        // Comment back in when we can fetch
-                        // Get rate limit headers, set rateLimits
-                        console.log(...response.headers)
-                        // console.log(response.headers.get('X-RateLimit-Limit'))
-                        responseData.data = responseData.data.flat(Infinity)
-                        data.push(...responseData.data)
+                    // Comment back in when we can fetch
+                    // Get rate limit headers, set rateLimits
+                    // console.log(...response.headers)
+                    // console.log(response.headers.get('X-RateLimit-Limit'))
+                    responseData.data = responseData.data.flat(Infinity)
+                    data.push(...responseData.data)
 
-                        if (responseData.data.length == dataCountBy) {
-                            console.log("Going to fetch paginate")
-                        }
+                    if (responseData.data.length == dataCountBy) {
+                        console.log("Going to fetch paginate")
+                    }
 
-                        // Resolve with response data so we can determine if there is more data to fetch.
-                        resolve(responseData)
-                    }, waitTime)
+                    // Resolve with response data so we can determine if there is more data to fetch.
+                    resolve(responseData)
                 })
 
             }
