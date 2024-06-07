@@ -27,7 +27,7 @@ export function SwitchIQStateProvider(props) {
     const [rejectedCallRecords, setRejectedCallRecords] = useState()
     const [rejectedCalls, setRejectedCalls] = useState()
     const [frequentDIDs, setFrequentDIDs] = useState()
-
+    const [abortController, setAbortController] = useState(null)
 
 
 
@@ -37,16 +37,16 @@ export function SwitchIQStateProvider(props) {
         async function handleUseEffect() {
 
             if (pageLoaded && (localFilter.from !== activeFilterStatus.from || localFilter.to !== activeFilterStatus.to || !callRecords)) {
-                // console.log({
-                //     "localFilter.from !== activeFilterStatus.from": localFilter.from !== activeFilterStatus.from,
-                //     " localFilter.to !== activeFilterStatus.to": localFilter.to !== activeFilterStatus.to,
-                //     " !callRecords": !callRecords,
-                //     callRecords
-                // })
 
-                await fetchData(getFilterQuery(activeFilterStatus))
+                if (abortController) {
+                    abortController.abort("There is a new filter query")
+                }
 
-                // setLocalFilter(activeFilterStatus)
+                const controller = new AbortController()
+
+                setAbortController(controller)
+                await fetchData(getFilterQuery(activeFilterStatus), controller)
+
             }
 
             // This prevents a duplicate fetch on load.
@@ -86,14 +86,20 @@ export function SwitchIQStateProvider(props) {
     }
 
 
+
+
     /**
      * Fetches all data based on the current query
      */
-    async function fetchData(query) {
+    async function fetchData(query, abortController) {
         // Rate limit is updated/evaluated via paginateFetch
-        let rateLimits = {}
+        // let rateLimits = {}
+
+        // Cancel any fetch that was currently going on.
+        let cancelCurrentAPICalls = true
 
         try {
+
             // Initializing the fetch process for all the data
             const calls = await paginateFetch('calls', query)
             setCallRecords(calls)
@@ -133,7 +139,8 @@ export function SwitchIQStateProvider(props) {
                         console.log("Selected: ", activeFilterStatus.selectValue || activeFilterStatus.from && 'custom filter' || 'no filter',)
                         const url = encodeURI(root + route + `?page_size=${dataCountBy}&page=${page}` + query)
                         console.log("Fetching: " + url)
-                        const response = await fetch(url)
+                        const signal = abortController.signal
+                        const response = await fetch(url, { signal })
                         const responseData = await response.json()
 
                         if (responseData.error) {
