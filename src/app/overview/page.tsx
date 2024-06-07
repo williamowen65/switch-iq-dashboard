@@ -15,7 +15,7 @@ export default function Overview(props) {
         <QuickFilters />
         <SummaryCards />
         <section>
-          <RecentCalls />
+          <RecentCalls suppressHydrationWarning={true} />
         </section>
         <section className={classes['grid-column-2']}>
           <LeadMap />

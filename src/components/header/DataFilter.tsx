@@ -34,7 +34,9 @@ export function DataFilter(props) {
         }
       }, 100)
     } else {
-      filterContext.updateFilter(val)
+      setTimeout(() => {
+        filterContext.updateFilter(val)
+      }, 100)
     }
   }
 
