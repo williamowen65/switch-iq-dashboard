@@ -9,6 +9,7 @@ const SwitchIQContext = createContext({
     rejectedCallRecords: {},
     rejectedCalls: {},
     frequentDIDs: {},
+    summary: {},
     refresh: function () { }
 })
 
@@ -88,6 +89,7 @@ export function SwitchIQStateProvider(props) {
         rejectedCallRecords,
         rejectedCalls,
         frequentDIDs,
+        summary,
         refresh: function () {
             console.log("Refreshing data")
             if (abortController) {

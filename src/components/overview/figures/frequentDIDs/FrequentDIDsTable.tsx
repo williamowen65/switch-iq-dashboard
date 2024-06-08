@@ -17,7 +17,7 @@ import SwitchIQContext from '@/store/switchiq-api-context'
 export function FrequentDIDsTable(props) {
   const switchContext = useContext(SwitchIQContext)
 
-  const [dummyData, setDummyData] = useState([])
+  const [frequentDids, setFrequentDidsData] = useState([])
   const renderBy = 2000
   const [dataRenderingLength, setDataRenderingLength] = useState(renderBy)
   const [loadingState, setLoadingState] = useState<boolean>(true)
@@ -27,24 +27,12 @@ export function FrequentDIDsTable(props) {
     setDataRenderingLength(renderBy)
     if (switchContext.frequentDIDs) {
       console.log('setting data', { frequentDIDs: switchContext.frequentDIDs })
-      setDummyData(switchContext.frequentDIDs as [])
+      setFrequentDidsData(switchContext.frequentDIDs as [])
+      if (switchContext.frequentDIDs.length == 0) {
+        setLoadingState(false)
+      }
     }
   }, [switchContext.frequentDIDs])
-
-  // const dummyData = [
-  //   {
-  //     dids: '(206) 342-8631',
-  //     totalCalls: '1,234',
-  //     connectivity: '70%',
-  //     asrConnected: '65%',
-  //   },
-  //   {
-  //     dids: '(206) 342-8631',
-  //     totalCalls: '1,234',
-  //     connectivity: '70%',
-  //     asrConnected: '65%',
-  //   },
-  // ]
 
   function calculateData(rowData) {
     rowData.total_calls = rowData.answered_calls + rowData.connected_calls
@@ -105,16 +93,20 @@ export function FrequentDIDsTable(props) {
             </TableHead>
 
             <TableBody>
-              {dummyData.map(calculateData).map((data, i) => (
-                <FrequentDIDsRow data={data} key={i} />
-              ))}
+              {frequentDids
+                .slice(0, dataRenderingLength)
+                .map(calculateData)
+                .map((data, i) => (
+                  <FrequentDIDsRow data={data} key={i} />
+                ))}
             </TableBody>
             <TableFoot>
               <TableRow>
                 {/* <TableCell></TableCell> */}
                 <TableCell colSpan={7} className="text-center ">
                   {loadingState === true && 'Loading'}
-                  {loadingState === false && 'All rows are rendered'}
+                  {loadingState === false &&
+                    `All rows are rendered (${frequentDids.length} rows)`}
                 </TableCell>
               </TableRow>
             </TableFoot>

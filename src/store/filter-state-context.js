@@ -1,5 +1,7 @@
 'use client';
 
+import { getDayEnd } from "@/utils/common";
+
 const { createContext, useState } = require("react");
 
 const FilterStateContext = createContext({
@@ -30,11 +32,7 @@ export function FilterStateProvider(props) {
 
         setFilterStatus(newFilterStatus)
 
-        function getDayEnd(date) {
-            const thisDate = new Date(date)
-            thisDate.setHours(23, 59, 59, 999)
-            return thisDate
-        }
+
     }
 
     const context = {

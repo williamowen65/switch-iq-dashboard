@@ -43,7 +43,7 @@ export default function RejectionsChart(props) {
     // The height used here matches the height of the heat map svg src\components\overview\figures\lead-map\LeadMap.tsx
     <figure className="custom-top-margin bg-white border ring-0 border-gray-400">
       <h2 className="font-bold title-indent">Rejections</h2>
-      <div className="flex items-center justify-center space-x-6 h-full py-[50px]">
+      <div className="flex items-center justify-center space-x-6 h-full py-[50px] px-1">
         <DonutChart
           data={sales}
           category="sales"
@@ -55,26 +55,24 @@ export default function RejectionsChart(props) {
         />
         <table>
           <tbody>
-
-          {categories.map((category, i) => (
-            <tr
-              key={category}
-              className=" items-baseline"
-              style={{ border: 'none' }}
-            >
-              <td>
-                <div
-                  className={`rounded-full w-2 h-2 bg-[${colorTheme[i]}] mr-2`}
-                  style={{ verticalAlign: 'middle' }}
-                ></div>
-              </td>
-              <td className="text-nowrap">{category}</td>
-              <td className="font-light px-4">100</td>
-              <td className="font-bold">1.5%</td>
-            </tr>
-          ))}
+            {categories.map((category, i) => (
+              <tr
+                key={category}
+                className=" items-baseline"
+                style={{ border: 'none' }}
+              >
+                <td>
+                  <div
+                    className={`rounded-full w-2 h-2 bg-[${colorTheme[i]}] mr-2`}
+                    style={{ verticalAlign: 'middle' }}
+                  ></div>
+                </td>
+                <td className="text-nowrap">{category}</td>
+                <td className="font-light px-4">100</td>
+                <td className="font-bold">1.5%</td>
+              </tr>
+            ))}
           </tbody>
-
         </table>
       </div>
     </figure>

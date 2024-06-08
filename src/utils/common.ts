@@ -13,3 +13,9 @@ export function selectAll(event) {
         checkbox.checked = value
     })
 }
+
+export function getDayEnd(date) {
+    const thisDate = new Date(date)
+    thisDate.setHours(23, 59, 59, 999)
+    return thisDate
+}

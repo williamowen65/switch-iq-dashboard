@@ -27,6 +27,9 @@ export function RecentCalls(props) {
     if (switchContext.callRecords) {
       console.log('setting data', { callRecords: switchContext.callRecords })
       setRecentCalls(switchContext.callRecords as [])
+      if (switchContext.callRecords.length == 0) {
+        setLoadingState(false)
+      }
     }
   }, [switchContext.callRecords])
 
@@ -99,7 +102,9 @@ export function RecentCalls(props) {
                   colSpan={7}
                   className="text-center recentCalls-Loading"
                 >
-                  {loadingState ? 'Loading' : ''}
+                  {loadingState
+                    ? 'Loading'
+                    : `All rows are rendered (${recentCalls.length} rows)`}
                 </TableCell>
               </TableRow>
             </TableFoot>

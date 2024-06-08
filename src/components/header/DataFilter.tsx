@@ -11,6 +11,7 @@ import {
 import moment from 'moment'
 import React, { useContext, useState } from 'react'
 import classes from './Header.module.css'
+import { getDayEnd } from '@/utils/common'
 
 export function DataFilter(props) {
   // const [activeFilterStatus, filterContext.updateFilter] = useState<DateRangePickerValue | null>(null)
@@ -94,7 +95,11 @@ export function DataFilter(props) {
         <DateRangePickerItem value="today" from={todayStart} to={todayEnd}>
           Today ({moment().format('MMM Do')})
         </DateRangePickerItem>
-        <DateRangePickerItem value="yesterday" from={yesterday} to={todayStart}>
+        <DateRangePickerItem
+          value="yesterday"
+          from={yesterday}
+          to={getDayEnd(yesterday)}
+        >
           Yesterday
         </DateRangePickerItem>
         <Divider className="my-0" />
