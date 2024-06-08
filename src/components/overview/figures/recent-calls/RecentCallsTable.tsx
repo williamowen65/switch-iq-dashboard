@@ -16,18 +16,17 @@ import { useContext, useEffect, useState } from 'react'
 export function RecentCalls(props) {
   const switchContext = useContext(SwitchIQContext)
 
-  const [dummyData, setDummyData] = useState([])
+  const [recentCalls, setRecentCalls] = useState([])
   const renderBy = 2000
   const [dataRenderingLength, setDataRenderingLength] = useState(renderBy)
-  const [renderingInterval, setRenderingInterval] = useState<any>()
-  const [loadingState, setLoadingState] = useState<boolean>()
+  const [loadingState, setLoadingState] = useState<boolean>(true)
 
   useEffect(() => {
     setLoadingState(true)
     setDataRenderingLength(renderBy)
     if (switchContext.callRecords) {
       console.log('setting data', { callRecords: switchContext.callRecords })
-      setDummyData(switchContext.callRecords as [])
+      setRecentCalls(switchContext.callRecords as [])
     }
   }, [switchContext.callRecords])
 
@@ -49,10 +48,6 @@ export function RecentCalls(props) {
       })
     }
   }
-
-  useEffect(() => {
-    setLoadingState(true)
-  }, [switchContext.callRecords])
 
   // If the user scrolls near the bottom of the table, we can render more data
 
@@ -91,9 +86,11 @@ export function RecentCalls(props) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {dummyData.slice(0, dataRenderingLength).map((recentCall, i) => (
-                <CallRow data={recentCall} key={i} />
-              ))}
+              {recentCalls
+                .slice(0, dataRenderingLength)
+                .map((recentCall, i) => (
+                  <CallRow data={recentCall} key={i} />
+                ))}
             </TableBody>
             <TableFoot>
               <TableRow>
